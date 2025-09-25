@@ -1,0 +1,350 @@
+"""
+The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
+"""
+scalar JSON
+
+scalar BigInt
+
+type PageInfo {
+  hasNextPage: Boolean!
+  hasPreviousPage: Boolean!
+  startCursor: String
+  endCursor: String
+}
+
+type Meta {
+  status: JSON
+}
+
+type Query {
+  stakes(id: String!): stakes
+  stakess(where: stakesFilter, orderBy: String, orderDirection: String, before: String, after: String, limit: Int): stakesPage!
+  unstakes(id: String!): unstakes
+  unstakess(where: unstakesFilter, orderBy: String, orderDirection: String, before: String, after: String, limit: Int): unstakesPage!
+  rewardClaims(id: String!): rewardClaims
+  rewardClaimss(where: rewardClaimsFilter, orderBy: String, orderDirection: String, before: String, after: String, limit: Int): rewardClaimsPage!
+  rewardSessions(id: String!): rewardSessions
+  rewardSessionss(where: rewardSessionsFilter, orderBy: String, orderDirection: String, before: String, after: String, limit: Int): rewardSessionsPage!
+  _meta: Meta
+}
+
+type stakes {
+  id: String!
+  user: String!
+  amount: BigInt!
+  blockNumber: BigInt!
+  timestamp: BigInt!
+  transactionHash: String!
+}
+
+type stakesPage {
+  items: [stakes!]!
+  pageInfo: PageInfo!
+  totalCount: Int!
+}
+
+input stakesFilter {
+  AND: [stakesFilter]
+  OR: [stakesFilter]
+  id: String
+  id_not: String
+  id_in: [String]
+  id_not_in: [String]
+  id_contains: String
+  id_not_contains: String
+  id_starts_with: String
+  id_ends_with: String
+  id_not_starts_with: String
+  id_not_ends_with: String
+  user: String
+  user_not: String
+  user_in: [String]
+  user_not_in: [String]
+  user_contains: String
+  user_not_contains: String
+  user_starts_with: String
+  user_ends_with: String
+  user_not_starts_with: String
+  user_not_ends_with: String
+  amount: BigInt
+  amount_not: BigInt
+  amount_in: [BigInt]
+  amount_not_in: [BigInt]
+  amount_gt: BigInt
+  amount_lt: BigInt
+  amount_gte: BigInt
+  amount_lte: BigInt
+  blockNumber: BigInt
+  blockNumber_not: BigInt
+  blockNumber_in: [BigInt]
+  blockNumber_not_in: [BigInt]
+  blockNumber_gt: BigInt
+  blockNumber_lt: BigInt
+  blockNumber_gte: BigInt
+  blockNumber_lte: BigInt
+  timestamp: BigInt
+  timestamp_not: BigInt
+  timestamp_in: [BigInt]
+  timestamp_not_in: [BigInt]
+  timestamp_gt: BigInt
+  timestamp_lt: BigInt
+  timestamp_gte: BigInt
+  timestamp_lte: BigInt
+  transactionHash: String
+  transactionHash_not: String
+  transactionHash_in: [String]
+  transactionHash_not_in: [String]
+  transactionHash_contains: String
+  transactionHash_not_contains: String
+  transactionHash_starts_with: String
+  transactionHash_ends_with: String
+  transactionHash_not_starts_with: String
+  transactionHash_not_ends_with: String
+}
+
+type unstakes {
+  id: String!
+  user: String!
+  amount: BigInt!
+  blockNumber: BigInt!
+  timestamp: BigInt!
+  transactionHash: String!
+}
+
+type unstakesPage {
+  items: [unstakes!]!
+  pageInfo: PageInfo!
+  totalCount: Int!
+}
+
+input unstakesFilter {
+  AND: [unstakesFilter]
+  OR: [unstakesFilter]
+  id: String
+  id_not: String
+  id_in: [String]
+  id_not_in: [String]
+  id_contains: String
+  id_not_contains: String
+  id_starts_with: String
+  id_ends_with: String
+  id_not_starts_with: String
+  id_not_ends_with: String
+  user: String
+  user_not: String
+  user_in: [String]
+  user_not_in: [String]
+  user_contains: String
+  user_not_contains: String
+  user_starts_with: String
+  user_ends_with: String
+  user_not_starts_with: String
+  user_not_ends_with: String
+  amount: BigInt
+  amount_not: BigInt
+  amount_in: [BigInt]
+  amount_not_in: [BigInt]
+  amount_gt: BigInt
+  amount_lt: BigInt
+  amount_gte: BigInt
+  amount_lte: BigInt
+  blockNumber: BigInt
+  blockNumber_not: BigInt
+  blockNumber_in: [BigInt]
+  blockNumber_not_in: [BigInt]
+  blockNumber_gt: BigInt
+  blockNumber_lt: BigInt
+  blockNumber_gte: BigInt
+  blockNumber_lte: BigInt
+  timestamp: BigInt
+  timestamp_not: BigInt
+  timestamp_in: [BigInt]
+  timestamp_not_in: [BigInt]
+  timestamp_gt: BigInt
+  timestamp_lt: BigInt
+  timestamp_gte: BigInt
+  timestamp_lte: BigInt
+  transactionHash: String
+  transactionHash_not: String
+  transactionHash_in: [String]
+  transactionHash_not_in: [String]
+  transactionHash_contains: String
+  transactionHash_not_contains: String
+  transactionHash_starts_with: String
+  transactionHash_ends_with: String
+  transactionHash_not_starts_with: String
+  transactionHash_not_ends_with: String
+}
+
+type rewardClaims {
+  id: String!
+  user: String!
+  session: BigInt!
+  reward: BigInt!
+  blockNumber: BigInt!
+  timestamp: BigInt!
+  transactionHash: String!
+}
+
+type rewardClaimsPage {
+  items: [rewardClaims!]!
+  pageInfo: PageInfo!
+  totalCount: Int!
+}
+
+input rewardClaimsFilter {
+  AND: [rewardClaimsFilter]
+  OR: [rewardClaimsFilter]
+  id: String
+  id_not: String
+  id_in: [String]
+  id_not_in: [String]
+  id_contains: String
+  id_not_contains: String
+  id_starts_with: String
+  id_ends_with: String
+  id_not_starts_with: String
+  id_not_ends_with: String
+  user: String
+  user_not: String
+  user_in: [String]
+  user_not_in: [String]
+  user_contains: String
+  user_not_contains: String
+  user_starts_with: String
+  user_ends_with: String
+  user_not_starts_with: String
+  user_not_ends_with: String
+  session: BigInt
+  session_not: BigInt
+  session_in: [BigInt]
+  session_not_in: [BigInt]
+  session_gt: BigInt
+  session_lt: BigInt
+  session_gte: BigInt
+  session_lte: BigInt
+  reward: BigInt
+  reward_not: BigInt
+  reward_in: [BigInt]
+  reward_not_in: [BigInt]
+  reward_gt: BigInt
+  reward_lt: BigInt
+  reward_gte: BigInt
+  reward_lte: BigInt
+  blockNumber: BigInt
+  blockNumber_not: BigInt
+  blockNumber_in: [BigInt]
+  blockNumber_not_in: [BigInt]
+  blockNumber_gt: BigInt
+  blockNumber_lt: BigInt
+  blockNumber_gte: BigInt
+  blockNumber_lte: BigInt
+  timestamp: BigInt
+  timestamp_not: BigInt
+  timestamp_in: [BigInt]
+  timestamp_not_in: [BigInt]
+  timestamp_gt: BigInt
+  timestamp_lt: BigInt
+  timestamp_gte: BigInt
+  timestamp_lte: BigInt
+  transactionHash: String
+  transactionHash_not: String
+  transactionHash_in: [String]
+  transactionHash_not_in: [String]
+  transactionHash_contains: String
+  transactionHash_not_contains: String
+  transactionHash_starts_with: String
+  transactionHash_ends_with: String
+  transactionHash_not_starts_with: String
+  transactionHash_not_ends_with: String
+}
+
+type rewardSessions {
+  id: String!
+  session: BigInt!
+  totalReward: BigInt!
+  totalStaked: BigInt!
+  startTime: BigInt!
+  endTime: BigInt
+  transactionHash: String!
+  timestamp: BigInt!
+}
+
+type rewardSessionsPage {
+  items: [rewardSessions!]!
+  pageInfo: PageInfo!
+  totalCount: Int!
+}
+
+input rewardSessionsFilter {
+  AND: [rewardSessionsFilter]
+  OR: [rewardSessionsFilter]
+  id: String
+  id_not: String
+  id_in: [String]
+  id_not_in: [String]
+  id_contains: String
+  id_not_contains: String
+  id_starts_with: String
+  id_ends_with: String
+  id_not_starts_with: String
+  id_not_ends_with: String
+  session: BigInt
+  session_not: BigInt
+  session_in: [BigInt]
+  session_not_in: [BigInt]
+  session_gt: BigInt
+  session_lt: BigInt
+  session_gte: BigInt
+  session_lte: BigInt
+  totalReward: BigInt
+  totalReward_not: BigInt
+  totalReward_in: [BigInt]
+  totalReward_not_in: [BigInt]
+  totalReward_gt: BigInt
+  totalReward_lt: BigInt
+  totalReward_gte: BigInt
+  totalReward_lte: BigInt
+  totalStaked: BigInt
+  totalStaked_not: BigInt
+  totalStaked_in: [BigInt]
+  totalStaked_not_in: [BigInt]
+  totalStaked_gt: BigInt
+  totalStaked_lt: BigInt
+  totalStaked_gte: BigInt
+  totalStaked_lte: BigInt
+  startTime: BigInt
+  startTime_not: BigInt
+  startTime_in: [BigInt]
+  startTime_not_in: [BigInt]
+  startTime_gt: BigInt
+  startTime_lt: BigInt
+  startTime_gte: BigInt
+  startTime_lte: BigInt
+  endTime: BigInt
+  endTime_not: BigInt
+  endTime_in: [BigInt]
+  endTime_not_in: [BigInt]
+  endTime_gt: BigInt
+  endTime_lt: BigInt
+  endTime_gte: BigInt
+  endTime_lte: BigInt
+  transactionHash: String
+  transactionHash_not: String
+  transactionHash_in: [String]
+  transactionHash_not_in: [String]
+  transactionHash_contains: String
+  transactionHash_not_contains: String
+  transactionHash_starts_with: String
+  transactionHash_ends_with: String
+  transactionHash_not_starts_with: String
+  transactionHash_not_ends_with: String
+  timestamp: BigInt
+  timestamp_not: BigInt
+  timestamp_in: [BigInt]
+  timestamp_not_in: [BigInt]
+  timestamp_gt: BigInt
+  timestamp_lt: BigInt
+  timestamp_gte: BigInt
+  timestamp_lte: BigInt
+}
