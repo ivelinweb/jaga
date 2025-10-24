@@ -6,27 +6,39 @@ export default createConfig({
   chains: {
     hederaTestnet: {
       id: 296,
-      rpc: http("https://testnet.hashio.io/api"),
+      rpc: http(process.env.RPC_URL ?? "https://296.rpc.thirdweb.com"),
     },
   },
   contracts: {
     JagaStake: {
       chain: "hederaTestnet",
-      address: "0x0000000000000000000000000000000000000000", // TODO: update Hedera Testnet address
+      address:
+        (process.env.JAGA_STAKE_ADDRESS as `0x${string}`) ??
+        ("0x0000000000000000000000000000000000000000" as `0x${string}`),
       abi: JAGA_STAKE_ABI,
-      startBlock: 0, // TODO: set deployment block
+      startBlock: process.env.JAGA_STAKE_START_BLOCK
+        ? Number(process.env.JAGA_STAKE_START_BLOCK)
+        : 0,
     },
     JagaToken: {
       chain: "hederaTestnet",
-      address: "0x0000000000000000000000000000000000000000", // TODO: update Hedera Testnet address
+      address:
+        (process.env.JAGA_TOKEN_ADDRESS as `0x${string}`) ??
+        ("0x0000000000000000000000000000000000000000" as `0x${string}`),
       abi: ERC20_ABI,
-      startBlock: 0, // TODO: set deployment block
+      startBlock: process.env.JAGA_TOKEN_START_BLOCK
+        ? Number(process.env.JAGA_TOKEN_START_BLOCK)
+        : 0,
     },
     USDC: {
       chain: "hederaTestnet",
-      address: "0x0000000000000000000000000000000000000000", // TODO: update Hedera Testnet address
+      address:
+        (process.env.USDC_ADDRESS as `0x${string}`) ??
+        ("0x0000000000000000000000000000000000000000" as `0x${string}`),
       abi: ERC20_ABI,
-      startBlock: 0, // TODO: set deployment block
+      startBlock: process.env.USDC_START_BLOCK
+        ? Number(process.env.USDC_START_BLOCK)
+        : 0,
     },
   },
 });
