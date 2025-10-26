@@ -70,7 +70,7 @@ RPC: https://296.rpc.thirdweb.com
 ---
 
 ## Monorepo Structure
-- jaga — Next.js 14 app (frontend)
+- frontend — Next.js 14 app (frontend)
 - indexer — Ponder indexer (GraphQL API)
 - smart-contract — Solidity contracts (Foundry)
 
@@ -98,7 +98,7 @@ set -a && . ./.env && set +a && DATABASE_SCHEMA=app npm run start
 
 ### 3) Run the Frontend (Next.js)
 ```bash
-cd jaga
+cd frontend
 npm install
 npm run dev
 # App: http://localhost:3000
