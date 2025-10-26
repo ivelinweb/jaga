@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="jaga/public/jagantara_icon.png" alt="Jaga logo" width="120" />
+  <img src="frontend/public/jagantara_icon.png" alt="Jaga logo" width="120" />
 </p>
 <p align="center">
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-0ea5e9.svg" alt="License: MIT" /></a>
