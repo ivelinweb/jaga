@@ -106,6 +106,37 @@ User ── submitClaim(...) ─► DAOGovernance (Hedera EVM)
    ClaimManager (Hedera EVM).claimPayout(claimId) ─► USDC → claimant
 ```
 
+## System Architecture
+
+```text
+                   +-----------------------+
+                   |   Browser / Wallet    |
+                   | (Reown, Xellar, wagmi)|
+                   +-----------+-----------+
+                               |
+                               | UI + Tx signatures
+                               v
++----------------------+       +------------------------------+
+| Next.js Frontend     |<----->| Indexer (Ponder + Hono)      |
+| (jaga-main)          |  HTTP | - Event listeners            |
+| - React pages/hooks  | GraphQL| - onchain tables (stakes...) |
+| - viem/wagmi/ethers  |       | - DB (Ponder-managed)        |
+| - Apollo Client      |       | - /graphql, /sql endpoints   |
+| - Jagabot (MCP)      |       +--------------+---------------+
++----------+-----------+                      ^
+           |                                  |
+           | EVM JSON-RPC                     | GraphQL queries
+           v                                  |
++----------+-----------+    emits events      |
+| Hedera EVM (Testnet) |----------------------+
+| - InsuranceManager   |
+| - JagaStake/JagaToken|
+| - DAOGovernance      |
+| - ClaimManager       |
+| - MorphoReinvest     |
+| - USDC, Morpho Vault |
++----------------------+
+```
 
 
 ---
