@@ -41,6 +41,73 @@ Jaga delivers end‑to‑end, on‑chain insurance:
 - Ponder indexer for fast querying and dashboards
 - Conservative vault strategy module to help sustain reserves
 
+
+## Data Flow
+
+```text
+[1] Staking & Indexing
+────────────────────────────────────────────────────────────────────
+User Wallet ──signs tx──> Next.js (useStake hook)
+     |                       |
+     |                       | 1) USDC.approve(JagaStake, amount)
+     |                       | 2) JagaStake.stake(amount)
+     v                       v
+ Hedera EVM (JagaStake) ── emits events ──> Indexer (Ponder)
+                                         └─► onchain tables:
+                                            - stakes
+                                            - unstakes
+                                            - reward_claims
+                                            - reward_sessions
+                                         └─► GraphQL API (/graphql)
+                                                     │
+                                                     ▼
+                                         Next.js (Apollo Client)
+```
+
+```text
+[2] Premium Payment & Revenue Split
+────────────────────────────────────────────────────────────────────
+Next.js (useInsuranceManager)
+   └── getPriceFromAmountTier() ─►
+   └── USDC.approve(InsuranceManager, totalPremium) ─►
+   └── payPremium(tier, duration, covered, amount) ─►
+                           │
+                           ▼
+                    Hedera EVM (InsuranceManager)
+                           │ monthly split
+          ┌───────────────┼─────────────────────┬───────────────┐
+          ▼               ▼                     ▼               ▼
+   ClaimManager      JagaStake             Owner (20%)    MorphoReinvest
+   (25% premiums)    (30% -> rewards)                       (25%)
+          │               │                                  │
+          ▼               ▼                                  ▼
+   Payout vault     notifyRewardAmount()             Morpho Vault deposit
+```
+
+```text
+[3] Claims Governance & Payout
+────────────────────────────────────────────────────────────────────
+User ── submitClaim(...) ─► DAOGovernance (Hedera EVM)
+                               │ votes (JagaToken holders)
+                               ▼
+                      ┌─────────────────────────────────┐
+                      │  Decision window:               │
+                      │  - Approve if yes ≥ 66% after   │
+                      │    ≥ 5 days                     │
+                      │  - Reject if not reached after  │
+                      │    7 days total                 │
+                      └─────────────────────────────────┘
+                               │
+                ┌──────────────┴───────────────┐
+                ▼                              ▼
+         Approved                         Rejected
+                │
+                ▼
+   ClaimManager (Hedera EVM).claimPayout(claimId) ─► USDC → claimant
+```
+
+
+
 ---
 
 ## Deployed Contracts (Hedera Testnet · Chain ID 296)
