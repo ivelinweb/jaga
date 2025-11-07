@@ -143,25 +143,25 @@ User ── submitClaim(...) ─► DAOGovernance (Hedera EVM)
 
 ## Deployed Contracts (Hedera Testnet · Chain ID 296)
 - InsuranceManager — `0xbDD1e681D19cE84E691C14f87B157CFf1c181625`
-  - https://hashscan.io/testnet/evm/contract/0xbDD1e681D19cE84E691C14f87B157CFf1c181625
+  - https://hashscan.io/testnet/address/0xbDD1e681D19cE84E691C14f87B157CFf1c181625
 - JagaStake — `0xB4359c18D30DDe538cBD16b3206Edd6832DC2C1F`
-  - https://hashscan.io/testnet/evm/contract/0xB4359c18D30DDe538cBD16b3206Edd6832DC2C1F
+  - https://hashscan.io/testnet/address/0xB4359c18D30DDe538cBD16b3206Edd6832DC2C1F
 - JagaToken — `0x1b597ba645a8e6F81a499e91034D38eE9f0817Ff`
-  - https://hashscan.io/testnet/evm/contract/0x1b597ba645a8e6F81a499e91034D38eE9f0817Ff
+  - https://hashscan.io/testnet/address/0x1b597ba645a8e6F81a499e91034D38eE9f0817Ff
 - DAOGovernance — `0x1599fb939C00E5a9b0A4764cE94701A65614bc5E`
-  - https://hashscan.io/testnet/evm/contract/0x1599fb939C00E5a9b0A4764cE94701A65614bc5E
+  - https://hashscan.io/testnet/address/0x1599fb939C00E5a9b0A4764cE94701A65614bc5E
 - ClaimManager — `0xED08E5b96a450f3000aeA8e1b7c7A746199B2757`
-  - https://hashscan.io/testnet/evm/contract/0xED08E5b96a450f3000aeA8e1b7c7A746199B2757
+  - https://hashscan.io/testnet/address/0xED08E5b96a450f3000aeA8e1b7c7A746199B2757
 - MorphoReinvest — `0x54E18c73f006dB44632349B2df2fc5F489a851Cd`
-  - https://hashscan.io/testnet/evm/contract/0x54E18c73f006dB44632349B2df2fc5F489a851Cd
+  - https://hashscan.io/testnet/address/0x54E18c73f006dB44632349B2df2fc5F489a851Cd
 
 ---
 
 ## External Dependencies (Reused on Hedera Testnet)
 - USDC — `0x59b5E4796CCd2970850dFCA53D6Da6e5AFc9F7cC`
-  - https://hashscan.io/testnet/evm/contract/0x59b5E4796CCd2970850dFCA53D6Da6e5AFc9F7cC
+  - https://hashscan.io/testnet/address/0x59b5E4796CCd2970850dFCA53D6Da6e5AFc9F7cC
 - Morpho Vault — `0xd14cCC0BeFd10e2E635c6ca72c174CA64782012d`
-  - https://hashscan.io/testnet/evm/contract/0xd14cCC0BeFd10e2E635c6ca72c174CA64782012d
+  - https://hashscan.io/testnet/address/0xd14cCC0BeFd10e2E635c6ca72c174CA64782012d
 
 RPC: https://296.rpc.thirdweb.com
 
