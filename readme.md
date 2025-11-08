@@ -20,6 +20,7 @@ On‑chain, DAO‑governed insurance that protects crypto users and protocols wi
 ## My Documents
 
 [Pitch Doc](./Documents/pitch.pdf)
+
 [Hedera Developer Certificate](./Documents/DevCert.pdf)
 ---
 
