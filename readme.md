@@ -17,6 +17,11 @@
 On‑chain, DAO‑governed insurance that protects crypto users and protocols with transparent claims, sustainable reserves, and a great UX. Built on Hedera EVM for fast, low‑cost finality.
 
 ---
+## My Documents
+
+[Pitch Doc](./Documents/pitch.pdf)
+[Hedera Developer Certificate](./Documents/DevCert.pdf)
+---
 
 ## Table of Contents
 - Overview
