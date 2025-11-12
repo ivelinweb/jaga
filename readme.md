@@ -230,7 +230,7 @@ See also Jagahackathon.md for detailed architecture, plus hash links.
 ---
 
 ## Pitch Deck
-- 
+- [Pitch Doc](./Documents/pitch.pdf)
 
 ---
 
